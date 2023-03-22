@@ -5,7 +5,10 @@ project(Veg)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(JSON_BuildTests OFF CACHE INTERNAL "")
+
 add_subdirectory(vendor/libpqxx)
+add_subdirectory(vendor/json)
 
 # VEG
 include(FetchContent)
@@ -15,5 +18,5 @@ FetchContent_MakeAvailable(cpr)
 
 file(GLOB_RECURSE VEG_SOURCES "src/**.cpp" "src/**.h")
 add_executable(veg ${VEG_SOURCES})
-target_link_libraries(veg PRIVATE cpr::cpr pqxx)
+target_link_libraries(veg PRIVATE cpr::cpr pqxx nlohmann_json::nlohmann_json)
 target_include_directories(veg PRIVATE src vendor/libpqxx/include)
