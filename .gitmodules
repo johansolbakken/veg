@@ -1,3 +1,6 @@
 [submodule "vendor/libpqxx"]
 	path = vendor/libpqxx
 	url = git@github.com:jtv/libpqxx.git
+[submodule "vendor/json"]
+	path = vendor/json
+	url = git@github.com:nlohmann/json.git

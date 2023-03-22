@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cpr/cpr.h>
-#include "frontend/application.h"
 
 void get_road_network()
 {
@@ -14,6 +13,6 @@ void get_road_network()
 
 int main(int argc, char **argv)
 {
-    Application app;
-    return app.run(argc, argv);
+    get_road_network();
+    return 0;
 }

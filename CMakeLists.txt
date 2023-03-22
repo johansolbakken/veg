@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(vendor/libpqxx)
 
-find_package(Qt6 COMPONENTS Core Widgets REQUIRED)
-
 # VEG
 include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
@@ -17,5 +15,5 @@ FetchContent_MakeAvailable(cpr)
 
 file(GLOB_RECURSE VEG_SOURCES "src/**.cpp" "src/**.h")
 add_executable(veg ${VEG_SOURCES})
-target_link_libraries(veg PRIVATE cpr::cpr pqxx Qt6::Core Qt6::Widgets)
+target_link_libraries(veg PRIVATE cpr::cpr pqxx)
 target_include_directories(veg PRIVATE src vendor/libpqxx/include)
