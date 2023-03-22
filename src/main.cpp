@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cpr/cpr.h>
+#include "frontend/application.h"
 
 void get_road_network()
 {
@@ -11,9 +12,8 @@ void get_road_network()
     std::cout << r.text << std::endl;
 }
 
-int main()
+int main(int argc, char **argv)
 {
-    get_road_network();
-
-    return 0;
+    Application app;
+    return app.run(argc, argv);
 }
