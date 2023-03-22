@@ -5,6 +5,7 @@ project(Veg)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_subdirectory(vendor/libpqxx)
 
 # VEG
 include(FetchContent)
@@ -13,4 +14,5 @@ FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
 FetchContent_MakeAvailable(cpr)
 
 add_executable(veg src/main.cpp)
-target_link_libraries(veg PRIVATE cpr::cpr)
+target_link_libraries(veg PRIVATE cpr::cpr pqxx)
+target_include_directories(veg PRIVATE src vendor/libpqxx/include)
